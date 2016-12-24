@@ -11,11 +11,10 @@ import java.util.concurrent.TimeUnit;
 public class WaitUtils {
 
     public static WebElement waitForElementForWebElem(WebElement add, int timeOutInSeconds) {
-        return new FluentWait<>(Page.getDriver())
+        return (WebElement) new FluentWait(Page.getDriver())
                 .withTimeout(timeOutInSeconds, TimeUnit.SECONDS)
                 .pollingEvery(200, TimeUnit.MILLISECONDS)
-                .ignoring(NoSuchElementException.class)
-                .until(ExpectedConditions.visibilityOf(add));
+                .ignoring(NoSuchElementException.class).until(ExpectedConditions.visibilityOf(add));
     }
 }
 
