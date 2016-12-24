@@ -5,9 +5,9 @@ import org.openqa.selenium.support.PageFactory;
 
 public abstract class Page {
 
-    private static ThreadLocal<WebDriver> webDriver = new InheritableThreadLocal<>();
+    private static ThreadLocal<WebDriver> webDriver = new ThreadLocal<>();
 
-    public static WebDriver getdriver() {
+    public static WebDriver getDriver() {
         return webDriver.get();
     }
 

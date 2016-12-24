@@ -4,15 +4,16 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import java.awt.*;
+import java.util.List;
 
-import static pages.ChooseSecondItemFromList.addToCart;
 import static utils.WaitUtils.waitForElementForWebElem;
 
 public class ChooseItemFromList extends Page {
 
-    @FindBy(xpath = "//a[@title='Apple iPhone 7 Plus 4G LTE Unlocked GSM Quad Core Smartphone w/ 12MP Camera (US Version) Jet Black']")
-    private WebElement chooseProduct;
+static     ChooseItemFromList addToCart = new ChooseItemFromList(getDriver());
+
+    @FindBy(xpath = "//div[@class='a-row a-spacing-none']/a")
+    private List<WebElement> chooseProduct;
 
     @FindBy(id = "add-to-cart-button")
     private WebElement addToCartItem;
@@ -22,17 +23,17 @@ public class ChooseItemFromList extends Page {
         return addToCartItem;
     }
 
-    ChooseItemFromList(WebDriver driver) {
+    public ChooseItemFromList(WebDriver driver) {
         super(driver);
     }
 
-    public ChooseSecondItem addtoCartItem() throws AWTException {
-        waitForElementForWebElem(chooseProduct, 5);
-        chooseProduct.click();
+    public ChooseSecondItem addtoCartItem() {
+        waitForElementForWebElem(chooseProduct.get(0), 5);
+        chooseProduct.get(0).click();
         addToCart.getAddToCartItem().click();
 
 
-        return new ChooseSecondItem(getdriver());
+        return new ChooseSecondItem(getDriver());
 
     }
 }

@@ -13,18 +13,17 @@ public class CheckCart extends Page {
 
     private static List<String> resultSet = new ArrayList<>();
 
-     private ChooseSecondItemFromList chooseSecondAmountOfElement = new ChooseSecondItemFromList(getdriver());
+     private ChooseSecondItemFromList chooseSecondAmountOfElement = new ChooseSecondItemFromList(getDriver());
 
-    static ChooseItem chooseItem = new ChooseItem(getdriver());
+    static ChooseItem chooseItem = new ChooseItem(getDriver());
 
-    public static final String firstItemLinkText = "Samsung Galaxy S7 Edge Factory Unlocked GSM 4G LTE Smartphone - Titanium Silver";
-
+   public static final String firstItemLinkText = "Samsung Galaxy S7 Factory Unlocked Phone 32 GB - Internationally Sourced (Middle East/African/Asia/EU/LATAM) Version G930F- Titanium Silver";
     public static final String secondItemLinkText = "Apple iPhone 7 Plus 4G LTE Unlocked GSM Quad Core Smartphone w/ 12MP Camera (US Version) Jet Black";
 
     @FindBy(xpath = "//span[@class='a-size-medium sc-product-title a-text-bold']")
     private List<WebElement> checkCartItems;
 
-    CheckCart(WebDriver driver) {
+    public CheckCart(WebDriver driver) {
         super(driver);
     }
 
@@ -33,7 +32,7 @@ public class CheckCart extends Page {
                 chooseSecondAmountOfElement.getSecondAmount() - chooseItem.getAmount() == 0) {
             systemErrPrint();
         }
-            return new CheckCart(getdriver());
+            return new CheckCart(getDriver());
     }
 
     public static boolean isElementPresent(WebDriver driver, By locator) {

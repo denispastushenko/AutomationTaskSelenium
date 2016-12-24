@@ -4,7 +4,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,31 +13,32 @@ public class ChooseSecondItemFromList extends Page {
 
     private static List<Integer> amountCartLast = new ArrayList<>();
 
-    static ChooseItemFromList addToCart = new ChooseItemFromList(getdriver());
+    static ChooseItemFromList addToCart = new ChooseItemFromList(getDriver());
 
-    private ChooseItem choose = new ChooseItem(getdriver());
+    private ChooseItem choose = new ChooseItem(getDriver());
 
-    @FindBy(xpath = "//a[@title='Samsung Galaxy S7 Edge Factory Unlocked GSM 4G LTE Smartphone - Titanium Silver']")
-    private WebElement chooseSecondItem;
+    @FindBy(xpath = "//div[@class='a-row a-spacing-none']/a")
+    private List<WebElement> chooseSecondItem;
 
     @FindBy(id = "huc-v2-button-view-cart-announce")
     private WebElement goToCart;
 
-    ChooseSecondItemFromList(WebDriver driver) {
+    public ChooseSecondItemFromList(WebDriver driver) {
         super(driver);
     }
 
-    public CheckCart addtoCartAnotherItem() throws AWTException {
-        waitForElementForWebElem(chooseSecondItem, 5);
-        chooseSecondItem.click();
+    public CheckCart addtoCartAnotherItem() {
+        waitForElementForWebElem(chooseSecondItem.get(0), 5);
+        chooseSecondItem.get(0).click();
+
         addToCart.getAddToCartItem().click();
         waitForElementForWebElem(goToCart, 5);
         goToCart.click();
-        return new CheckCart(getdriver());
+        return new CheckCart(getDriver());
     }
 
     private void amountMethod() {
-        amountCartLast.add(choose.cartAmount);
+        amountCartLast.add(Integer.parseInt(choose.getItemsAmount().getText()));
     }
 
     public int getSecondAmount() {
