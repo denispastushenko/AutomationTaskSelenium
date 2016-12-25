@@ -8,7 +8,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class WebDriverUtils {
-    public static DesiredCapabilities desiredCapabilities = DesiredCapabilities.chrome();
+    private static DesiredCapabilities desiredCapabilities = DesiredCapabilities.chrome();
 
     public static WebDriver createDriver() {
         try {

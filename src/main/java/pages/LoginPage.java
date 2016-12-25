@@ -17,29 +17,9 @@ public class LoginPage extends Page {
     @FindBy(xpath = "//input[@tabindex='5']")
     private WebElement buttonLogin;
 
-    @FindBy(xpath = "//div[@class='content clear']")
-    private WebElement warningIncorrectLoginOrPass;
-
-    @FindBy(xpath="//span[@class='sn_menu_title']")
-    private WebElement succLogin;
-
     public LoginPage(WebDriver driver) {
         super(driver);
     }
-
-    LoginPage() {
-        this(Page.getDriver());
-    }
-
-    public WebElement getWarningIncorrectLoginOrPass() {
-        return warningIncorrectLoginOrPass;
-    }
-
-    public WebElement getSuccLogin() {
-        return succLogin;
-    }
-
-
 
     public ComposeLinkPageClick loginMethod(String email, String pass) {
         waitForElementForWebElem(userEmail,5);

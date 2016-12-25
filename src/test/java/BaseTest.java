@@ -1,3 +1,4 @@
+
 import liseners.TestLogListener;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -7,13 +8,14 @@ import pages.*;
 import static utils.WebDriverUtils.createDriver;
 
 @Listeners(TestLogListener.class)
-public class BeforeTest {
-
+public class BaseTest {
     protected static final String SITE = "http://www.i.ua/";
     protected LoginPage loginPage;
     protected SentMailPage sentMailPage;
     protected ComposeLinkPageClick composeLinkPageClick;
-    protected CheckMailClickPage checkMailClickPage;
+    protected MailinatorStartPage mailinatorStartPage;
+    protected  CheckNameAndSubjectPage checkNameAndSubjectPage;
+    protected  CheckCurrentContentBodyPage checkCurrentContentBodyPage;
 
     @BeforeMethod
     public void setUp() throws Exception {
@@ -27,6 +29,5 @@ public class BeforeTest {
             Page.getDriver().quit();
         }
     }
-
 
 }
