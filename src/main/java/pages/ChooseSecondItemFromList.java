@@ -13,8 +13,6 @@ public class ChooseSecondItemFromList extends Page {
 
     private static List<Integer> amountCartLast = new ArrayList<>();
 
-    static ChooseItemFromList addToCart = new ChooseItemFromList(getDriver());
-
     private ChooseItem choose = new ChooseItem(getDriver());
 
     @FindBy(xpath = "//div[@class='a-row a-spacing-none']/a")
@@ -28,9 +26,9 @@ public class ChooseSecondItemFromList extends Page {
     }
 
     public CheckCart addtoCartAnotherItem() {
-        waitForElementForWebElem(chooseSecondItem.get(0), 5);
-        chooseSecondItem.get(0).click();
-
+        waitForElementForWebElem(chooseSecondItem.get(1), 5);
+        chooseSecondItem.get(1).click();
+        ChooseItemFromList addToCart = new ChooseItemFromList(getDriver());
         addToCart.getAddToCartItem().click();
         waitForElementForWebElem(goToCart, 5);
         goToCart.click();

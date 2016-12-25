@@ -9,6 +9,7 @@ import org.junit.runner.RunWith;
         plugin = {"pretty", "html:src/test/resources/cucumber-html-report"},
         glue = "stepDefinition"
 )
+
 public class RunBDDTest{
 
 }

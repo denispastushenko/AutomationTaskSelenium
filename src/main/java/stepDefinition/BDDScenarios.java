@@ -9,16 +9,14 @@ import pages.*;
 
 import java.awt.*;
 
-import static pages.CheckCart.firstItemLinkText;
-import static pages.CheckCart.isElementPresent;
-import static pages.CheckCart.secondItemLinkText;
+import static pages.CheckCart.*;
 import static pages.Page.getDriver;
 import static utils.LanguageCheckClass.setMainGreeting;
 import static utils.WebdriverUtils.createDriver;
 
 public class BDDScenarios {
     public static final String SITE = "https://www.amazon.com/";
-    protected StartPage startPage;
+    public StartPage startPage;
 
 
 
@@ -60,12 +58,12 @@ public class BDDScenarios {
     public void chooseAnotherItem() throws AWTException {
         ChooseSecondItemFromList chooseSecondItemFromList = new ChooseSecondItemFromList(getDriver());
         ChooseSecondItem chooseSecondItem = new ChooseSecondItem(getDriver());
-        chooseSecondItem.chooseSecondItemFrom("samsung galaxy s7 edge");
+        chooseSecondItem.chooseSecondItemFrom("samsung galaxy s7");
         chooseSecondItemFromList.addtoCartAnotherItem();
     }
 
 
-    @Then("^In cart should be (\\d+) new items and \"([^\"]*)\"$")
+    @Then("^In cart should be (\\d+) new items \"([^\"]*)\" and \"([^\"]*)\"$")
     public void checkCart(Integer arg1, String arg2, String arg3) {
         ChooseSecondItemFromList chooseSecondItemFromList = new ChooseSecondItemFromList(getDriver());
         CheckCart checkCart = new CheckCart(getDriver());
@@ -79,7 +77,6 @@ public class BDDScenarios {
 
     }
 
-
     @When("^I click link \"([^\"]*)\" ,I fill \"([^\"]*)\" with invalid data and \"([^\"]*)\"  with invalid data and click \"([^\"]*)\" button$")
     public void typeInvalidCredentional(String arg1, String arg2, String arg3, String arg4) {
         startPage.autorisation();
@@ -92,11 +89,12 @@ public class BDDScenarios {
 
     @Then("^Should be warning massage, something like \"([^\"]*)\"$")
     public void invalidLogin(String arg1) {
-        org.junit.Assert.assertEquals("We can not find an account with that email address", getDriver().findElement(By.xpath("//ul[@class= 'a-nostyle " +
-                "a-vertical a-spacing-none']/li/span[@class='a-list-item']")).getText());
+        Assert.assertTrue( getDriver().findElement(By.xpath("//ul[@class= 'a-nostyle " +
+                "a-vertical a-spacing-none']/li/span[@class='a-list-item']")).isDisplayed());
 
 
     }
+
 
 
 

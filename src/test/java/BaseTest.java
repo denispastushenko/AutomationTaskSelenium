@@ -20,6 +20,10 @@ public class BaseTest {
 
     @BeforeMethod
     public void setUp() throws Exception {
+        System.setProperty("-Dhudson.model.DirectoryBrowserSupport.CSP=default-src 'self'; script-src 'self' 'unsafe-inline' " +
+                "'unsafe-eval'; style-src 'self' 'unsafe-inline';",
+                "-Djenkins.model.DirectoryBrowserSupport.CSP=default-src 'self'; script-src" +
+                " 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline';");
         startPage = new StartPage(createDriver());
         Page.getDriver().manage().window().maximize();
     }

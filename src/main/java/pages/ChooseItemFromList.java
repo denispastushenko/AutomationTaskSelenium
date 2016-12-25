@@ -10,7 +10,7 @@ import static utils.WaitUtils.waitForElementForWebElem;
 
 public class ChooseItemFromList extends Page {
 
-static     ChooseItemFromList addToCart = new ChooseItemFromList(getDriver());
+
 
     @FindBy(xpath = "//div[@class='a-row a-spacing-none']/a")
     private List<WebElement> chooseProduct;
@@ -28,6 +28,7 @@ static     ChooseItemFromList addToCart = new ChooseItemFromList(getDriver());
     }
 
     public ChooseSecondItem addtoCartItem() {
+        ChooseItemFromList addToCart = new ChooseItemFromList(getDriver());
         waitForElementForWebElem(chooseProduct.get(0), 5);
         chooseProduct.get(0).click();
         addToCart.getAddToCartItem().click();
