@@ -1,13 +1,13 @@
 package utils;
 
-import java.util.concurrent.TimeUnit;
+import pages.Page;
 
-import static pages.Page.getDriver;
+import java.util.concurrent.TimeUnit;
 
 
 public class WaitUtils {
     public static void  waitFor() {
-        getDriver().manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        Page.getDriver().manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
     }
 
 
