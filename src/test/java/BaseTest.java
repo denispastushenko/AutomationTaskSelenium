@@ -1,10 +1,13 @@
+import liseners.TestLogListener;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import pages.*;
 
 import java.lang.reflect.Method;
 
+@Listeners(TestLogListener.class)
 public class BaseTest {
     public static final String SITE = "http://olx.ua";
     protected HomePage homePage;
@@ -15,7 +18,6 @@ public class BaseTest {
 
     @BeforeMethod
     public void setUp(Method method) {
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Denys\\Desktop\\chromedriver_win32\\chromedriver.exe");
         homePage = new HomePage(new ChromeDriver());
         Page.getDriver().manage().window().maximize();
 

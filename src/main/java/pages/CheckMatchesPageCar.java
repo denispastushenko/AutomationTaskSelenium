@@ -3,6 +3,7 @@ package pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,7 +25,7 @@ public class CheckMatchesPageCar extends Page {
         super(webDriver);
     }
 
-    public CheckMatchersJacket checkMatch(String category) {
+    public CheckMatchersJacket findAnotherCategory(String category) {
         addCollResCar();
         clearField.click();
         typeAnotherCategory.sendKeys(category);

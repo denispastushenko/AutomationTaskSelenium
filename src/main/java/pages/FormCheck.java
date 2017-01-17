@@ -7,22 +7,21 @@ import org.openqa.selenium.support.FindBy;
 
 public class FormCheck extends Page {
 
-    @FindBy(id="topLoginLink")
-    private WebElement myProfile;
+    private HomePage home = new HomePage(getDriver());
 
-    @FindBy(id="userEmail")
+    @FindBy(id = "userEmail")
     private WebElement userEmail;
 
-    @FindBy(id="userPass")
+    @FindBy(id = "userPass")
     private WebElement userPass;
 
-    @FindBy(id="checkbox_user-remember")
+    @FindBy(id = "checkbox_user-remember")
     private WebElement checkbox;
 
-    @FindBy(xpath ="//div//button[@id='se_userLogin']" )
+    @FindBy(xpath = "//div//button[@id='se_userLogin']")
     private WebElement userLogin;
 
-    @FindBy(xpath="//div//label")
+    @FindBy(xpath = "//div//label")
     private WebElement mess;
 
 
@@ -30,14 +29,19 @@ public class FormCheck extends Page {
         super(webDriver);
     }
 
-    public FormCheck checkFormValues(String value) throws InterruptedException {
-        myProfile.click();
-        Assert.assertEquals(userEmail.getText(),"");
-        Assert.assertEquals(userPass.getText(),"");
-        Assert.assertTrue(checkbox.isSelected());
+    public FormCheck checkFormValues() {
+        home.getCheckProfile().click();
+        Assert.assertEquals("", userEmail.getText());
+        Assert.assertEquals("", userPass.getText());
+        Assert.assertTrue("Is check Box selected", checkbox.isSelected());
+        return new FormCheck(driver.get());
+    }
+
+    public FormCheck checkFormWithIncorrectValues(String value) {
+        home.getCheckProfile().click();
         userEmail.sendKeys(value);
         userLogin.click();
-        Assert.assertEquals(mess.getText(),"це не схоже на email-адресу");
-        return  new FormCheck(driver.get());
+        Assert.assertEquals("это не похоже на email-адрес", mess.getText());
+        return new FormCheck(driver.get());
     }
 }

@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -32,12 +33,15 @@ public class HomePage extends Page {
         super(webDriver);
     }
 
-    public CarCheckPage checkValuesMethods(String value) {
+    public CarCheckPage checkPopularRequests() {
         addCollRes();
         Assert.assertEquals(resultSet.toString(), "[Популярные запросы:]");
-        Assert.assertEquals(checkProfile.getText(), "Мой профиль");
+        return new CarCheckPage(driver.get());
+    }
+
+    public CarCheckPage checkLocationMethods(String value) {
         switchLanguage.click();
-        Assert.assertEquals(driver.get().getCurrentUrl(),"https://www.olx.ua/uk/");
+        Assert.assertEquals(driver.get().getCurrentUrl(), "https://www.olx.ua/uk/");
         carSearch.sendKeys(value);
         btnCarSearch.click();
         return new CarCheckPage(driver.get());
@@ -46,10 +50,18 @@ public class HomePage extends Page {
 
     private void addCollRes() {
         checkPopularSearch.stream()
-                .map((WebElement::getText))
+                .map(WebElement::getText)
                 .filter(result -> result.contains("Популярные запросы:"))
                 .forEach(resultSet::add);
+    }
+
+    public WebElement getCheckProfile() {
+        return checkProfile;
 
     }
 
+    public FormCheck getMyProfile() {
+        getCheckProfile().click();
+        return new FormCheck(getDriver());
+    }
 }

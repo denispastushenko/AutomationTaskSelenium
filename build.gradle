@@ -3,7 +3,7 @@ version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
 
-sourceCompatibility = 1.5
+sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
@@ -13,6 +13,10 @@ dependencies {
 
     compile group: 'org.testng', name: 'testng', version: '6.9.10'
     compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.0.1'
+    compile group: 'com.relevantcodes', name: 'extentreports', version: '2.41.1'
+}
 
-
+test {
+    systemProperty "browser", "chrome"
+    systemProperty "webdriver.chrome.driver", "$projectDir/remoteDriverUtils/chromedriver.exe"
 }

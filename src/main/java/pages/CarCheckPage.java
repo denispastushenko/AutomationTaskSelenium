@@ -1,6 +1,7 @@
 package pages;
 
 import org.junit.Assert;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -10,6 +11,7 @@ import java.util.Set;
 
 public class CarCheckPage extends Page {
     private static Set<String> resultSet = new HashSet<>();
+    private static final int timeToScroll = 2000;
 
     @FindBy(xpath = "//div/h2")
     private List<WebElement> topAnnouncement;
@@ -21,9 +23,18 @@ public class CarCheckPage extends Page {
 
     public CheckMatchesPageCar checkMatches() {
         addCollRes();
-        Assert.assertEquals(resultSet.contains("Топ-оголошення"), true);
-        Assert.assertEquals(driver.get().getCurrentUrl(),
-                "https://www.olx.ua/uk/list/q-%D0%90%D0%B2%D1%82%D0%BE%D0%BC%D0%BE%D0%B1%D0%B8%D0%BB%D0%B8/");
+        Assert.assertEquals("Is top of list present", true, resultSet.contains("Топ-оголошення"));
+        return new CheckMatchesPageCar(driver.get());
+    }
+
+    public CheckMatchesPageCar scroll (int scrollStep , int increment) {
+        int SCROLL = scrollStep;
+        long curTime = System.currentTimeMillis();
+        while (System.currentTimeMillis() - curTime < timeToScroll) {
+            ((JavascriptExecutor) getDriver())
+                    .executeScript(String
+                            .format("scrollBy(0, %d)", SCROLL += increment));
+        }
         return new CheckMatchesPageCar(driver.get());
     }
 
