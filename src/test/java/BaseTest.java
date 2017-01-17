@@ -16,6 +16,7 @@ public class BaseTest {
     protected CheckMatchersJacket checkMatchersJacket;
     protected FormCheck formCheck;
 
+
     @BeforeMethod
     public void setUp(Method method) {
         homePage = new HomePage(new ChromeDriver());
