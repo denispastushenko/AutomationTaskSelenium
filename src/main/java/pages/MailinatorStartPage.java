@@ -17,12 +17,11 @@ public class MailinatorStartPage extends  Page {
     MailinatorStartPage(WebDriver driver) {
         super(driver);}
 
-    private static   void getMailinatorPage(){
-        getDriver().get("https://www.mailinator.com/");
+    public static   void getMailinatorPage(String mail){
+        getDriver().get(mail);
     }
 
     public CheckNameAndSubjectPage searchLetterMethod(String userMailName){
-        getMailinatorPage();
         waitForElementForWebElem(goToMailButton,5);
         searchMailField.sendKeys(userMailName);
         goToMailButton.click();

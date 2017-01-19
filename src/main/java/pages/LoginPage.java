@@ -21,11 +21,11 @@ public class LoginPage extends Page {
         super(driver);
     }
 
-    public ComposeLinkPageClick loginMethod(String email, String pass) {
+    public ComposeLetterPage loginMethod(String email, String pass) {
         waitForElementForWebElem(userEmail,5);
         userEmail.sendKeys(email);
         userPassword.sendKeys(pass);
         buttonLogin.click();
-        return new ComposeLinkPageClick(getDriver());
+        return new ComposeLetterPage(getDriver());
     }
 }

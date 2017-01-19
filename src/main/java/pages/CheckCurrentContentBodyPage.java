@@ -1,35 +1,34 @@
 package pages;
 
-import org.openqa.selenium.By;
+import org.testng.Assert;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 import java.util.concurrent.TimeUnit;
 
-import static org.testng.AssertJUnit.assertEquals;
-
 public class CheckCurrentContentBodyPage extends Page {
 
-    private static final By body = By.xpath("//body");
+    @FindBy(id = "publicshowmaildivcontent")
+    private WebElement frame;
 
-    private static final String letterBody = "Hello, Denys.)\n" +
-            "\n" +
-            "-- реклама -----------------------------------------------------------\n" +
-            "Поторопись зарегистрировать самый короткий почтовый адрес @i.ua\n" +
-            "http://mail.i.ua/reg - и получи 1Gb для хранения писем";
+    @FindBy(xpath = "//body")
+    private WebElement body;
 
+    private static final String letterBody = "Hello, Denys.)";
 
     CheckCurrentContentBodyPage(WebDriver driver) {
         super(driver);
     }
 
     private static void waitForBodyTextLoad() {
-        getDriver().manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
+        getDriver().manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
     }
 
     public void letterContextCheckAssert() {
         waitForBodyTextLoad();
-        getDriver().switchTo().frame("publicshowmaildivcontent");
-        assertEquals(getDriver().findElement(body).getText(), letterBody);
+        getDriver().switchTo().frame(frame);
+        Assert.assertTrue(body.getText().startsWith(letterBody),"Letter body  is not empty");
         getDriver().switchTo().defaultContent();
     }
 }

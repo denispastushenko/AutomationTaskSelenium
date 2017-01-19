@@ -1,4 +1,3 @@
-
 import liseners.TestLogListener;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -12,7 +11,7 @@ public class BaseTest {
     protected static final String SITE = "http://www.i.ua/";
     protected LoginPage loginPage;
     protected SentMailPage sentMailPage;
-    protected ComposeLinkPageClick composeLinkPageClick;
+    protected ComposeLetterPage composeLetterPage;
     protected MailinatorStartPage mailinatorStartPage;
     protected  CheckNameAndSubjectPage checkNameAndSubjectPage;
     protected  CheckCurrentContentBodyPage checkCurrentContentBodyPage;
