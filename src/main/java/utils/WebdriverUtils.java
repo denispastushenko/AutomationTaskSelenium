@@ -7,7 +7,7 @@ public class WebdriverUtils {
 
     public static WebDriver createDriver() {
 
-            return new ChromeDriver();
+        return new ChromeDriver();
 
     }
 }

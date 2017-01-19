@@ -15,6 +15,7 @@ public class ChooseSecondItemFromList extends Page {
 
     private ChooseItem choose = new ChooseItem(getDriver());
 
+
     @FindBy(xpath = "//div[@class='a-row a-spacing-none']/a")
     private List<WebElement> chooseSecondItem;
 

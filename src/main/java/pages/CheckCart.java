@@ -13,17 +13,16 @@ public class CheckCart extends Page {
 
     private static List<String> resultSet = new ArrayList<>();
 
-     private ChooseSecondItemFromList chooseSecondAmountOfElement = new ChooseSecondItemFromList(getDriver());
+    private ChooseSecondItemFromList chooseSecondAmountOfElement = new ChooseSecondItemFromList(getDriver());
 
     private ChooseItem chooseItem = new ChooseItem(getDriver());
 
-   public static final String firstItemLinkText = "Samsung Galaxy S7 Edge Factory Unlocked Phone 32 GB International Version (Platinum Gold)";
-    public static final String secondItemLinkText = "Apple iPhone 7 Plus 4G LTE Unlocked GSM Quad Core Smartphone w/ 12MP Camera (US Version) Jet Black";
+    public static final String checkIsElementsPresent = "//span[@class='a-list-item']/a";
 
     @FindBy(xpath = "//span[@class='a-size-medium sc-product-title a-text-bold']")
     private List<WebElement> checkCartItems;
 
-    public CheckCart(WebDriver driver) {
+    CheckCart(WebDriver driver) {
         super(driver);
     }
 
@@ -32,7 +31,7 @@ public class CheckCart extends Page {
                 chooseSecondAmountOfElement.getSecondAmount() - chooseItem.getAmount() == 0) {
             systemErrPrint();
         }
-            return new CheckCart(getDriver());
+        return new CheckCart(getDriver());
     }
 
     public static boolean isElementPresent(WebDriver driver, By locator) {
@@ -44,7 +43,7 @@ public class CheckCart extends Page {
         }
     }
 
-    public  void getElements() {
+    public void getElements() {
         checkCartItems.stream()
                 .map(WebElement::getText)
                 .filter(title -> title.contains("Apple iPhone 7") || title.contains("Samsung Galaxy S7"))

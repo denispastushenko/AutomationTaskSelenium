@@ -1,5 +1,6 @@
-Feature: Person should be able choose and by phone in "Amazon"
-  If there are no Items what person searching for, should be warning message.
+@MyFirstBDDTest
+Feature: Person should be able choose and buy phone in "Amazon"
+  If there are no Items what person searching for -- should be warning message.
 
 
   Scenario: Login with valid credentials and order 2 existing goods

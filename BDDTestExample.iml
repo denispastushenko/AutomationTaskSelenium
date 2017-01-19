@@ -59,6 +59,9 @@
     <orderEntry type="library" name="Maven: org.mongodb:bson:3.0.4" level="project" />
     <orderEntry type="library" name="Maven: org.mongodb:mongodb-driver-core:3.0.4" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: info.cukes:cucumber-java8:1.2.5" level="project" />
+    <orderEntry type="library" name="Maven: ru.yandex.qatools.properties:properties-loader:1.6" level="project" />
+    <orderEntry type="library" name="Maven: commons-beanutils:commons-beanutils:1.9.2" level="project" />
+    <orderEntry type="library" name="Maven: commons-collections:commons-collections:3.2.1" level="project" />
     <orderEntry type="library" name="Maven: info.cukes:cucumber-testng:1.2.5" level="project" />
     <orderEntry type="library" name="Maven: info.cukes:cucumber-core:1.2.5" level="project" />
     <orderEntry type="library" name="Maven: info.cukes:cucumber-html:0.2.3" level="project" />

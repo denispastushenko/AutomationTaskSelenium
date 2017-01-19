@@ -16,8 +16,10 @@ public class TestLogListener extends TestListenerAdapter implements IInvokedMeth
         if (iInvokedMethod.isTestMethod())
             extentTest = extentReports.startTest(iTestResult.getTestName());
     }
+
     @Override
-    public void afterInvocation(IInvokedMethod iInvokedMethod, ITestResult iTestResult) {}
+    public void afterInvocation(IInvokedMethod iInvokedMethod, ITestResult iTestResult) {
+    }
 
     @Override
     public void onTestFailure(ITestResult tr) {

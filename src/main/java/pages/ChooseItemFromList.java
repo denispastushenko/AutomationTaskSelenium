@@ -10,20 +10,22 @@ import static utils.WaitUtils.waitForElementForWebElem;
 
 public class ChooseItemFromList extends Page {
 
-
-
     @FindBy(xpath = "//div[@class='a-row a-spacing-none']/a")
     private List<WebElement> chooseProduct;
+
 
     @FindBy(id = "add-to-cart-button")
     private WebElement addToCartItem;
 
+    public List<WebElement> getChooseProduct() {
+        return chooseProduct;
+    }
 
     WebElement getAddToCartItem() {
         return addToCartItem;
     }
 
-    public ChooseItemFromList(WebDriver driver) {
+    ChooseItemFromList(WebDriver driver) {
         super(driver);
     }
 
