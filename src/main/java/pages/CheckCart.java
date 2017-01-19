@@ -61,6 +61,7 @@ public class CheckCart extends Page {
     public void explanation() {
         System.out.println("First goods amount: " + chooseItem.getAmount());
         System.out.println("Second goods amount: " + chooseSecondAmountOfElement.getSecondAmount());
+        System.err.println("Cart sgould be empty firstly, if not -- test can not be completely passed");
     }
 
 }
