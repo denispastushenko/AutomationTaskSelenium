@@ -55,7 +55,7 @@ public class BDDScenarios extends BDDScenariosHelper {
     }
 
     @When("^I click link \"([^\"]*)\" ,I fill \"([^\"]*)\" with invalid data and \"([^\"]*)\"  with invalid data and click \"([^\"]*)\" button$")
-    public void typeInvalidCredentional(String arg1, String arg2, String arg3, String arg4) {
+    public void typeInvalidCredential(String arg1, String arg2, String arg3, String arg4) {
         signInPage = startPage.autorisation();
         chooseItem = signInPage.logIn(PropertyConfiguration.getInstance().getIncorrlogin(), PropertyConfiguration.getInstance().getIncorrpassword());
     }
