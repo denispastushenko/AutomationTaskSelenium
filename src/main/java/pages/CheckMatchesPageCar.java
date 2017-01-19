@@ -9,7 +9,7 @@ import java.util.List;
 
 public class CheckMatchesPageCar extends Page {
 
-    static List<String> resultSetCar = new ArrayList<>();
+    public static List<String> resultSetCar = new ArrayList<>();
 
     @FindBy(xpath = "//div//h3[@class='x-large lheight20 margintop5']/a/descendant::strong")
     private List<WebElement> getValueCar;

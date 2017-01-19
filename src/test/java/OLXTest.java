@@ -2,7 +2,8 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.Page;
 
-import java.awt.*;
+import static pages.CheckMatchersJacket.resultSetJacket;
+import static pages.CheckMatchesPageCar.resultSetCar;
 
 public class OLXTest extends BaseTest {
 
@@ -36,12 +37,16 @@ public class OLXTest extends BaseTest {
     }
 
     @Test
-    public void CheckIsCategoryNotTheSameTest() throws AWTException, InterruptedException {
+    public void CheckIsCategoryNotTheSameTest() {
         Page.getDriver().get(SITE);
         carCheckPage = homePage.checkLocationMethods("Автомобили");
         checkMatchesPage = carCheckPage.scroll(250, 250);
         checkMatchersJacket = checkMatchesPage.findAnotherCategory("Курточки");
         formCheck = checkMatchersJacket.checkForms();
+        Assert.assertNotEquals("Goods from different categories is not the same ",
+                resultSetCar.get(0), resultSetJacket.get(0));
+        Assert.assertNotEquals("Goods from different categories is not the same ",
+                resultSetCar.get(1), resultSetJacket.get(1));
     }
 
 

@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Set;
 
 public class CarCheckPage extends Page {
+
     private static Set<String> resultSet = new HashSet<>();
     private static final int timeToScroll = 2000;
 
@@ -17,7 +18,7 @@ public class CarCheckPage extends Page {
     private List<WebElement> topAnnouncement;
 
 
-    public CarCheckPage(WebDriver webDriver) {
+    CarCheckPage(WebDriver webDriver) {
         super(webDriver);
     }
 
