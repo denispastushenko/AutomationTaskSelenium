@@ -10,7 +10,7 @@ import static utils.WaitUtils.waitForElementForWebElem;
 
 public class CheckMailClickPage extends Page {
 
-    @FindBy(id = "newMail")
+    @FindBy(xpath = "//li[@id='newMail']/a[@class='icon-ho ho_mail ho_i_mailico']")
     private WebElement letters;
 
     @FindBy(xpath = "//span[@class='sbj']")
@@ -22,15 +22,15 @@ public class CheckMailClickPage extends Page {
     }
 
     public String getCheckSubjectMethod() {
-       return checkSubject
+        return checkSubject
                 .stream()
                 .map(WebElement::getText)
                 .findFirst()
                 .get();
     }
 
-    public CheckMailClickPage checkIsMailSent() {
-        waitForElementForWebElem(letters,5);
+    public CheckMailClickPage isMailSent() {
+        waitForElementForWebElem(letters, 5);
         letters.click();
         return new CheckMailClickPage(getDriver());
     }

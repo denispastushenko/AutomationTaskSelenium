@@ -4,7 +4,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import pages.*;
 
-import static utils.WebDriverUtils.createDriver;
+import static utils.WebdriverUtils.createDriver;
+
 
 @Listeners(TestLogListener.class)
 public class BeforeTest {

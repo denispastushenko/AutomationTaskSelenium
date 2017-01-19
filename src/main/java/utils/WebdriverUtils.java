@@ -7,7 +7,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class WebDriverUtils {
+public class WebdriverUtils {
     public static DesiredCapabilities desiredCapabilities = DesiredCapabilities.chrome();
 
     public static WebDriver createDriver() {

@@ -7,6 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import static utils.WaitUtils.waitForElementForWebElem;
 
 public class ComposeLinkPageClick extends Page {
+    
     @FindBy(xpath = "//p[@class='make_message']")
     private WebElement composeLetterLink;
 
