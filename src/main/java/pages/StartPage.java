@@ -6,10 +6,6 @@ import org.openqa.selenium.support.FindBy;
 
 public class StartPage extends Page {
 
-    public WebElement getLinkSignIn() {
-        return linkSignIn;
-    }
-
     @FindBy(id = "nav-link-accountList")
     private WebElement linkSignIn;
 
