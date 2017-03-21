@@ -20,6 +20,7 @@ class BDDScenariosHelper {
 
     @Before
     public void setUp() {
+         System.setProperty("webdriver.chrome.driver", "src\\main\\resources\\remoteDriverUtils\\chromedriver.exe");
         startPage = new StartPage(createDriver());
         getDriver().manage().window().maximize();
     }
