@@ -1,10 +1,9 @@
 import listeners.TestLogListener;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import pages.*;
-
-import static utils.WebdriverUtils.createDriver;
 
 @Listeners(TestLogListener.class)
 public class BaseTest {
@@ -20,7 +19,7 @@ public class BaseTest {
     @BeforeMethod
     public void setUp() throws Exception {
         System.setProperty("webdriver.chrome.driver", "src\\main\\resources\\remoteDriverUtils\\chromedriver.exe");
-        startPage = new StartPage(createDriver());
+        startPage = new StartPage(new ChromeDriver());
         Page.getDriver().manage().window().maximize();
     }
 

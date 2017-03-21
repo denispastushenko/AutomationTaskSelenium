@@ -3,6 +3,8 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import utils.PropertyConfiguration;
 
+import java.awt.*;
+
 import static pages.CheckCart.*;
 import static pages.Page.getDriver;
 import static utils.LanguageCheckClass.setMainGreeting;

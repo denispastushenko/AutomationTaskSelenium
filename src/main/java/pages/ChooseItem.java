@@ -33,7 +33,7 @@ public class ChooseItem extends Page {
         return itemsAmount;
     }
 
-    public  WebElement getFindElementFIeld() {
+    public WebElement getFindElementFIeld() {
         return findElementFIeld;
     }
 
@@ -46,7 +46,7 @@ public class ChooseItem extends Page {
     }
 
     public ChooseItemFromList chooseItemFrom(String item, WebElement webElement) {
-       amountCartFirst.add(Integer.parseInt(getItemsAmount().getText()));
+        amountCartFirst.add(Integer.parseInt(getItemsAmount().getText()));
         waitForElementForWebElem(webElement, 5);
         findElementFIeld.sendKeys(item);
         searchButton.click();

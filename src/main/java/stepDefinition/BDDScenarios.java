@@ -7,6 +7,8 @@ import org.openqa.selenium.By;
 import org.testng.Assert;
 import utils.PropertyConfiguration;
 
+import java.awt.*;
+
 import static pages.CheckCart.checkIsElementsPresent;
 import static pages.CheckCart.isElementPresent;
 import static pages.Page.getDriver;
@@ -22,7 +24,8 @@ public class BDDScenarios extends BDDScenariosHelper {
     @When("^I click link \"([^\"]*)\" ,I fill \"([^\"]*)\" with valid data and \"([^\"]*)\"  with valid data and click \"([^\"]*)\" button$")
     public void ligIn(String string, String string1, String string2, String string3) {
         signInPage = startPage.autorisation();
-        chooseItem = signInPage.logIn(PropertyConfiguration.getInstance().getEmail(), PropertyConfiguration.getInstance().getPassword());
+        chooseItem = signInPage.logIn(PropertyConfiguration.getInstance().getEmail(),
+                PropertyConfiguration.getInstance().getPassword());
     }
 
     @When("^Login should be successful, I have \"([^\"]*)\" and greetings \"([^\"]*)\"\\.$")
@@ -31,13 +34,13 @@ public class BDDScenarios extends BDDScenariosHelper {
     }
 
     @When("^Type first item choose from list and add it to cart$")
-    public void findFirstItem() {
+    public void findFirstItem() throws InterruptedException {
         chooseItemFromList = chooseItem.chooseItemFrom("Apple iPhone 7 Unlocked Phone", chooseItem.getFindElementFIeld());
         chooseSecondItem = chooseItemFromList.addtoCartItem();
     }
 
     @When("^Type second item choose from list and add it to cart$")
-    public void chooseAnotherItem() {
+    public void chooseAnotherItem() throws AWTException {
         chooseSecondItemFromList = chooseSecondItem.chooseSecondItemFrom("samsung galaxy s7");
         checkCart = chooseSecondItemFromList.addtoCartAnotherItem();
     }
@@ -50,14 +53,14 @@ public class BDDScenarios extends BDDScenariosHelper {
         checkCart.getElements();
         checkCart.elementAmountCheck();
         Assert.assertEquals(chooseSecondItemFromList.getSecondAmount() - chooseItem.getAmount(), 2);
-
         checkCart.explanation();
     }
 
     @When("^I click link \"([^\"]*)\" ,I fill \"([^\"]*)\" with invalid data and \"([^\"]*)\"  with invalid data and click \"([^\"]*)\" button$")
-    public void typeInvalidCredential(String arg1, String arg2, String arg3, String arg4) {
+    public void typeInvalidCredentional(String arg1, String arg2, String arg3, String arg4) {
         signInPage = startPage.autorisation();
-        chooseItem = signInPage.logIn(PropertyConfiguration.getInstance().getIncorrlogin(), PropertyConfiguration.getInstance().getIncorrpassword());
+        chooseItem = signInPage.logIn(PropertyConfiguration.getInstance().getIncorrlogin(),
+                PropertyConfiguration.getInstance().getIncorrpassword());
     }
 
 

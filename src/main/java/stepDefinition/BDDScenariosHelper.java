@@ -3,10 +3,11 @@ package stepDefinition;
 
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
+import org.openqa.selenium.chrome.ChromeDriver;
 import pages.*;
 
 import static pages.Page.getDriver;
-import static utils.WebdriverUtils.createDriver;
+
 
 class BDDScenariosHelper {
     protected static final String SITE = "https://www.amazon.com/";
@@ -20,8 +21,8 @@ class BDDScenariosHelper {
 
     @Before
     public void setUp() {
-         System.setProperty("webdriver.chrome.driver", "src\\main\\resources\\remoteDriverUtils\\chromedriver.exe");
-        startPage = new StartPage(createDriver());
+        System.setProperty("webdriver.chrome.driver", "src\\main\\resources\\remoteDriverUtils\\chromedriver.exe");
+        startPage = new StartPage(new ChromeDriver());
         getDriver().manage().window().maximize();
     }
 

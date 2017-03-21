@@ -21,6 +21,8 @@ public class ChooseItemFromList extends Page {
         return chooseProduct;
     }
 
+    public  static ChooseItem clearSearchField = new ChooseItem(getDriver());
+
     WebElement getAddToCartItem() {
         return addToCartItem;
     }
@@ -34,8 +36,7 @@ public class ChooseItemFromList extends Page {
         waitForElementForWebElem(chooseProduct.get(0), 5);
         chooseProduct.get(0).click();
         addToCart.getAddToCartItem().click();
-
-
+        clearSearchField.getFindElementFIeld().sendKeys("");
         return new ChooseSecondItem(getDriver());
 
     }
