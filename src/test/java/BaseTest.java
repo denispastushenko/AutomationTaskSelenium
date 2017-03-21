@@ -19,6 +19,7 @@ public class BaseTest {
 
     @BeforeMethod
     public void setUp() throws Exception {
+        System.setProperty("webdriver.chrome.driver", "src\\main\\resources\\remoteDriverUtils\\chromedriver.exe");
         startPage = new StartPage(createDriver());
         Page.getDriver().manage().window().maximize();
     }
